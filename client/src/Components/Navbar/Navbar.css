@@ -1,0 +1,276 @@
+body{
+    /* background-color: rgb(49, 46, 46); */
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 4%;
+  }
+
+  #ul {
+    list-style-type: none;
+    display: flex;
+    padding: 13px 0;
+    background-size: 400% 400%;
+    background-image: linear-gradient(-45deg, #63adf2, #63adf2, #56cfe1, #1c77c3,#82a0bc);
+    animation: 12s myGradient infinite;
+    border-radius: 40px;
+    box-shadow: 3px 3px 20px #39a9db;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    cursor: pointer;
+  }
+  
+  @keyframes myGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    
+    50%{
+      background-position: 100% 50%;
+    }
+    
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .active {
+    transition: 1s;
+  }
+  
+  .active1{
+    transition: 1s;
+  }
+  
+  .active2 {
+    transition: 1s;
+  }
+  
+  .active3 {
+    transition: 1s;
+  }
+
+ 
+  
+  .li #a {
+    color: #fff;
+    text-decoration: none;
+    padding: 45px 45px;
+    font-family: verdana;
+    font-weight: lighter;
+    font-size: 24px;
+    letter-spacing: 1px;
+    opacity: 0.9;
+    cursor: pointer;
+  }
+  
+  .navigation {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50px;
+    z-index: 10;
+    left: 50%;
+    
+  }
+  
+  
+  .active3:hover {
+    color: #fff;
+    animation: 1.5s myFlash linear infinite;
+    text-shadow: 2px 2px 30px #fff;
+    transition: 2s;
+    margin-top: -100px;
+  }
+  
+  .active2:hover {
+    color: #fff;
+    animation: 1.5s myFlash linear infinite;
+    text-shadow: 2px 2px 30px #fff;
+    transition: 2s;
+  }
+  
+  .active1:hover {
+    color: #fff;
+    animation: 1.5s myFlash linear infinite;
+    text-shadow: 2px 2px 30px #fff;
+    transition: 2s;
+  }
+  
+  .active:hover {
+    color: #fff;
+    animation: 1.5s myFlash linear infinite;
+    text-shadow: 2px 2px 30px #fff;
+    transition: 2s;
+  }
+  
+  
+  
+  .line-w5 {
+    width: 5px;
+    height: 200px;
+    background: tomato;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 70%;
+    border-radius: 30px;
+    background-image: linear-gradient(-45deg, #ff408c, #ff4040, #6666ff);
+    background-size: 400% 400%;
+    animation: 13s myBackground infinite;
+    box-shadow: 2px 2px 10px #ff2e38;
+    transition: 3s;
+  }
+  
+  @keyframes myBackground {
+    0% {
+      background-position: 0% 50%;
+      opacity: 0%;
+    }
+    
+    50% {
+      background-position: 100% 50%;
+    }
+    
+    100% {
+      background-position: 0% 50%;
+      opacity: 1;
+    }
+  }
+  
+  
+  @keyframes myLinear {
+    0%{
+      width: 50px;
+    }
+    
+    100% {
+      width: 250px;
+    }
+  }
+  
+  .flash-GIF {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ff5959;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 15%;
+    left: 10%;
+    box-shadow: 2px 2px 20px #d4267d;
+    animation: 1.6s myFlash linear infinite;
+  }
+  
+  @keyframes myFlash{
+    0% {
+      opacity: 1;
+    }
+    
+    50%{
+      opacity: .1;
+    }
+    
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .nav {
+    transition: 3s;
+    animation: 3s myAnimation ease linear;
+  }
+  
+  @keyframes myAnimation {
+    0% {
+      opacity: 0;
+    }
+    
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .nav-type {
+    animation: 3s myWorld ease linear;
+  }
+  
+  @keyframes myWorld {
+    0% {
+      opacity: 0;
+    }
+    
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @media(max-width: 767px) {
+ 
+    
+    .navigation {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+    }
+    
+ 
+    
+    #ul {
+      padding: 15px 0;
+    }
+    
+    
+    .li #a {
+      padding: 34px 34px;
+      font-size: 23px;
+      font-weight: lighter;
+    }
+    
+  
+  }
+  
+  .dropdown  #a{
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    background: tomato;
+    width: 100px;
+    text-align: center;
+    font-family: verdana;
+    line-height: 30px;
+    display: none;
+  
+  }
+  
+  
+  .text-content-fluid {
+    display: flex;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 53%;
+    left: 50%;
+    letter-spacing: 25px;
+    font-size: 50px;
+    font-family: verdana;
+  }
+ 
+  
+  @media(max-width: 767px) {
+    .text-content-fluid {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 60%;
+    }
+  }
+  
+
+  
+  
+  
+  
+
+  
+  
+  

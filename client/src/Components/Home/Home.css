@@ -1,0 +1,179 @@
+.card_container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    /* margin: 20px; */
+    margin-top: 40px;
+    margin-bottom: 40px;
+    flex-direction: row;
+    align-content: stretch;
+    align-items: center;
+    top: 150px;
+
+}
+.pagination{
+    /* margin-top: 60px; */
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    top: 100px;
+    position: relative;
+}
+
+.Loadingg{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    
+    position: relative;
+}
+
+.searchbar{
+    display: flex;
+    top: 200px;
+}
+
+
+.select1 {
+    /* Reset */
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    /* Personalize */
+    width: 11em;
+    height: 40px;
+    padding: 0 4em 0 1em;
+    background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg)
+        no-repeat right 0.8em center / 1.4em,
+        linear-gradient( 90deg, rgba(86, 207, 225, 1) 43%, rgba(99, 173, 242, 1) 100%);
+    color: black;
+    border-radius: 0.25em;
+    box-shadow: 0px 0px 30px 2px #000;
+    cursor: pointer;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  
+  option {
+      color: inherit;
+      background-color: #39a9db;
+    }
+    /* Remove focus outline */
+    .select1:focus {
+      outline: none;
+    }
+    /* Remove IE arrow */
+    .select1::-ms-expand {
+      display: none;
+    }
+
+    .select2 {
+        /* Reset */
+        appearance: none;
+        border: 0;
+        outline: 0;
+        font: inherit;
+        /* Personalize */
+        width: 8em;
+        height: 40px;
+        padding: 0 4em 0 1em;
+        background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg)
+            no-repeat right 0.8em center / 1.4em,
+            linear-gradient( 90deg, rgba(86, 207, 225, 1) 43%, rgba(99, 173, 242, 1) 100%);
+          /* linear-gradient(to left, rgba(255, 255, 255, 0.3) 3em, rgba(255, 255, 255, 0.2) 3em); */
+        color: black;
+        /* background: linear-gradient(90deg, rgba(255,95,96,1) 43%, rgba(255,195,113,1) 100%); */
+        border-radius: 0.25em;
+        box-shadow: 0px 0px 30px 2px #000;
+        cursor: pointer;
+        margin-left: 15px;
+        margin-right: 15px;
+        
+      }
+    
+      .select2:focus {
+        outline: none;
+      }
+      /* Remove IE arrow */
+      .select2::-ms-expand {
+        display: none;
+      }
+    
+      .select3 {
+        /* Reset */
+        appearance: none;
+        border: 0;
+        outline: 0;
+        font: inherit;
+        /* Personalize */
+        width: 8em;
+        height: 40px;
+        padding: 0 4em 0 1em;
+        background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg)
+            no-repeat right 0.8em center / 1.4em,
+            linear-gradient( 90deg, rgba(86, 207, 225, 1) 43%, rgba(99, 173, 242, 1) 100%);
+        color: black;
+        border-radius: 0.25em;
+        box-shadow: 0px 0px 30px 2px #000;
+        cursor: pointer;
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+    
+      .select3:focus {
+        outline: none;
+      }
+      /* Remove IE arrow */
+      .select3::-ms-expand {
+        display: none;
+      }
+    
+      .select4 {
+        /* Reset */
+        appearance: none;
+        border: 0;
+        outline: 0;
+        font: inherit;
+        /* Personalize */
+        width: 8em;
+        height: 40px;
+        padding: 0 4em 0 1em;
+        background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg)
+            no-repeat right 0.8em center / 1.4em,
+            linear-gradient( 90deg, rgba(86, 207, 225, 1) 43%, rgba(99, 173, 242, 1) 100%);
+        color: black;
+        border-radius: 0.25em;
+        box-shadow: 0px 0px 30px 2px #000;
+        cursor: pointer;
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+    
+      .select4:focus {
+        outline: none;
+      }
+      /* Remove IE arrow */
+      .select4::-ms-expand {
+        display: none;
+      }
+
+.ALL{
+    display: flex;
+   
+    margin-top: 90px;
+    margin-left: 110px;
+    margin-bottom: -150px;
+}
+
+.Error{
+  color: red;
+}
+/* .diverror{
+
+} */
