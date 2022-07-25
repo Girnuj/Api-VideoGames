@@ -1,25 +1,24 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { getGamesByName } from '../Redux/Actions';
-import './Searchbar.css'
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { GetGamesByName } from '../../Redux-Toolskit/Slices/VideoGames/VideoGames';
+import './Searchbar.css'; 
 
 const Searchbar = () => {
 
-    const dispatch = useDispatch();
-    const [name, setName] = useState('')
+  const dispatch = useDispatch();
 
-    function handleImputChange(e){
-        e.preventDefault();
-        setName(e.target.value);
-        
-      }
+  const [name, setName] = useState('');
 
-    function handleSubmit(e){
-        e.preventDefault();
-        dispatch(getGamesByName(name));
-        setName("");
-    }
+  const handleImputChange = (e) => {
+    e.preventDefault();
+    setName(e.target.value);
+  };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(GetGamesByName(name));
+    setName("");
+  };
 
   return (
     <div className="wrap">
@@ -28,8 +27,7 @@ const Searchbar = () => {
         <button type="submit" className="searchButton" onClick={(e) => handleSubmit(e)}> Search </button>
       </div>
     </div>
-
-  )
+  );
 }
 
 export default Searchbar

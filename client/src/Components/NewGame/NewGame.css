@@ -1,137 +1,120 @@
 @import url('https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap');
 :root {
-
 	--font-sans: 'Rubik', sans-serif;
-
 }
 
 .login {
-    overflow: hidden;
-    background-color: white;
-    padding: 40px 30px 30px 30px;
-    border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    -webkit-transition: -webkit-transform 300ms, box-shadow 300ms;
-    -moz-transition: -moz-transform 300ms, box-shadow 300ms;
-    transition: transform 300ms, box-shadow 300ms;
-    box-shadow: 25px -5px 150px -30px rgba(78, 168, 222, 1);
+  overflow: hidden;
+  background-color: white;
+  padding: 40px 30px 30px 30px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: -webkit-transform 300ms, box-shadow 300ms;
+  -moz-transition: -moz-transform 300ms, box-shadow 300ms;
+  transition: transform 300ms, box-shadow 300ms;
+  box-shadow: 25px -5px 150px -30px rgba(78, 168, 222, 1);
+}
 
-  }
+.login:hover {
+  box-shadow: 0px 0px 120px -55px rgba(78, 168, 222, 1);
+  /* transform: scale(1.02);
+  transition: all 0.4s; */
+  /* transform: translateY(0px); */
+}
 
-  .login:hover {
-    box-shadow: 0px 0px 120px -55px rgba(78, 168, 222, 1);
-    /* transform: scale(1.02);
-    transition: all 0.4s; */
-    /* transform: translateY(0px); */
- }
-  .login::before, .login::after {
-    content: "";
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    border-top-left-radius: 40%;
-    border-top-right-radius: 45%;
-    border-bottom-left-radius: 35%;
-    border-bottom-right-radius: 40%;
-    z-index: -1;
+.login::before, .login::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-top-left-radius: 40%;
+  border-top-right-radius: 45%;
+  border-bottom-left-radius: 35%;
+  border-bottom-right-radius: 40%;
+  z-index: -1;
+}
+
+.login::before {
+  left: 40%;
+  bottom: -25%;
+  background-color: rgba(69, 105, 144, 0.15);
+  -webkit-animation: wawes 6s infinite linear;
+  -moz-animation: wawes 6s infinite linear;
+  animation: wawes 6s infinite linear;
+}
+
+.login::after {
+  left: 35%;
+  bottom: -15%;
+  background-color: rgba(2, 128, 144, 0.2);
+  -webkit-animation: wawes 7s infinite;
+  -moz-animation: wawes 7s infinite;
+  animation: wawes 7s infinite;
+}
+
+.login > input {
+  font-family: "Asap", sans-serif;
+  display: block;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+  width: 100%;
+  border: 0;
+  padding: 10px 10px;
+  margin: 15px -10px;
+}
+
+@-webkit-keyframes wawes {
+  from {
+    -webkit-transform: rotate(0);
   }
-  .login::before {
-    left: 40%;
-    bottom: -25%;
-    background-color: rgba(69, 105, 144, 0.15);
-    -webkit-animation: wawes 6s infinite linear;
-    -moz-animation: wawes 6s infinite linear;
-    animation: wawes 6s infinite linear;
+  to {
+    -webkit-transform: rotate(360deg);
   }
-  .login::after {
-    left: 35%;
-    bottom: -15%;
-    background-color: rgba(2, 128, 144, 0.2);
-    -webkit-animation: wawes 7s infinite;
-    -moz-animation: wawes 7s infinite;
-    animation: wawes 7s infinite;
+}
+
+@-moz-keyframes wawes {
+  from {
+    -moz-transform: rotate(0);
   }
-  .login > input {
-    font-family: "Asap", sans-serif;
-    display: block;
-    border-radius: 5px;
-    font-size: 16px;
-    background: white;
-    width: 100%;
-    border: 0;
-    padding: 10px 10px;
-    margin: 15px -10px;
+  to {
+    -moz-transform: rotate(360deg);
   }
-  /* .login > button {
-    font-family: "Asap", sans-serif;
-    cursor: pointer;
-    color: #fff;
-    font-size: 16px;
-    text-transform: uppercase;
-    width: 80px;
-    border: 0;
-    padding: 10px 0;
-    margin-top: 10px;
-    margin-left: -5px;
-    border-radius: 5px;
-    background-color: #2EE59D;
-    -webkit-transition: background-color 300ms;
-    -moz-transition: background-color 300ms;
-    transition: background-color 300ms;
+}
+
+@keyframes wawes {
+  from {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
   }
-  .login > button:hover {
-    background-color: #2EE59D;
-  } */
-  
-  @-webkit-keyframes wawes {
-    from {
-      -webkit-transform: rotate(0);
-    }
-    to {
-      -webkit-transform: rotate(360deg);
-    }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
-  @-moz-keyframes wawes {
-    from {
-      -moz-transform: rotate(0);
-    }
-    to {
-      -moz-transform: rotate(360deg);
-    }
-  }
-  @keyframes wawes {
-    from {
-      -webkit-transform: rotate(0);
-      -moz-transform: rotate(0);
-      -ms-transform: rotate(0);
-      -o-transform: rotate(0);
-      transform: rotate(0);
-    }
-    to {
-      -webkit-transform: rotate(360deg);
-      -moz-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);
-      -o-transform: rotate(360deg);
-      transform: rotate(360deg);
-    }
-  }
+}
+
 .asdasd{
     margin-right: 20px;
 }
 
-
-
 .genress{
     color: grey;
 }
+
 .errorr{
     color: red;
 }
@@ -155,11 +138,6 @@
 .ppp{
   margin-right: 1em;
 }
-/* 
- .lis .ppp{
-  display: flex;
-  align-items: center;
-} */
 
 .botonX{
   /* display: flex;
@@ -169,13 +147,14 @@
   display: flex;
   cursor: pointer;
   padding: 0;
+  border-radius: 6px;
+  border: aqua;
+  background: #ff00009e;
 
 }
 
-
 .platt{
   color: grey;
-
 }
 
 .buttt{
@@ -206,7 +185,7 @@
   transform: translateY(-1px);
  }
 
- .btnback{
+.btnback{
   width: 140px;
   height: 45px;
   font-size: 23px;
@@ -223,9 +202,9 @@
   transition: all 0.5s;
   z-index: 1;
   font-family: var(--font-sans);
- }
+}
 
- .btnback::before {
+.btnback::before {
   content: "";
   position: absolute;
   top: 0;
@@ -235,22 +214,69 @@
   background-color: white;
   z-index: -1;
   transition: all 0.5s;
- }
+}
  
- .btnback:hover::before {
+.btnback:hover::before {
   width: 100%;
- }
+}
  
- .btnback:hover {
+.btnback:hover {
   color: black;
- }
+}
  
- .btnback:active:before {
+.btnback:active:before {
   background: #b9b9b9;
- }
+}
 
- .asdasd{
-   border: none;
-   padding-top: 2px;
-   padding-bottom: 2px;
- }
+.asdasd{
+  border: none;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+/* From uiverse.io by @satyamchaudharydev */
+/* === removing default button style ===*/
+.button {
+  margin: 0;
+  background: transparent;
+  padding: 0;
+  border: none;
+  position: relative;
+  top: 70px;
+  left: 40px;
+  cursor: pointer;
+}
+
+/* button styling */
+.button {
+  --border-right: 6px;
+  --text-stroke-color: rgba(255,255,255,0.6);
+  --animation-color: #37FF8B;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+/* this is the text, when you hover on button */
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+/* hover */
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color))
+}

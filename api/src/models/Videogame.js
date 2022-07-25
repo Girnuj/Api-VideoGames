@@ -1,8 +1,7 @@
 const { DataTypes } = require("sequelize");
-// Exportamos una funcion que define el modelo
-// Luego le injectamos la conexion a sequelize.
+
 module.exports = (sequelize) => {
-  // defino el modelo
+
   sequelize.define("videogame", {
     id: {
       type: DataTypes.UUID,
@@ -26,12 +25,7 @@ module.exports = (sequelize) => {
     rating: {
       type: DataTypes.FLOAT,
     },
-    // platforms: {
-    //   type: DataTypes.ARRAY(DataTypes.TEXT),
-    //   allowNull: false,
-    // },
     imagen: {
-
       type: DataTypes.TEXT,
       defaultValue: 'https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg'
     },
@@ -43,9 +37,3 @@ module.exports = (sequelize) => {
   });
 };
 
-// ID: * No puede ser un ID de un videojuego ya existente en la API rawg
-// Nombre *
-// Descripción *
-// Fecha de lanzamiento
-// Rating
-// Plataformas *

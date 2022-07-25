@@ -18,10 +18,13 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
+const { ApiGenres, ApiPlatsforms } = require('./src/Controllers/Games.js');
 const { conn } = require('./src/db.js');
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
+  ApiGenres();
+  ApiPlatsforms();
   server.listen(3001, () => {
     console.log('%s listening at 3001 All is Fine'); // eslint-disable-line no-console
   });

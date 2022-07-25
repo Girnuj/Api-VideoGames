@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import Background from "../Background/Background";
 import Cards from "../Cards/Cards";
 import { Loader } from "../Loader/Loader";
 import Navbar from "../Navbar/Navbar";
 import Pagination from "../Pagination/Pagination";
-import { filterByGenres, filterCreated, getGames, ordenByName, ordenByRating } from "../Redux/Actions";
+import { filterByGenres, filterCreated, GetAllGames, ordenByName, ordenByRating } from "../../Redux-Toolskit/Slices/VideoGames/VideoGames";
 import Searchbar from "../Searchbar/Searchbar";
 import "./Home.css";
 
 const Home = () => {
   const dispatch = useDispatch();
 
-  const AllGames = useSelector((state) => state.VideoGames);
+  const  { VideoGames: AllGames }  = useSelector(state => state.VideoGames);
 
   const [loading, setLoading] = useState(true);
 
@@ -24,41 +23,40 @@ const Home = () => {
   const IndexOfLast = pageNumber * gamesXPage;
   const IndexOfFirst = IndexOfLast - gamesXPage;
   const currentPages = AllGames.slice(IndexOfFirst, IndexOfLast);
-  console.log(currentPages)
 
   const paginate = (pageNumber) => setPageNumber(pageNumber);
 
   useEffect(() => {
-    dispatch(getGames())
+    dispatch(GetAllGames())
     .then((response) => setLoading(false));
   }, [dispatch]);
 
-  function handleFilterGenres(e){
+  const handleFilterGenres = (e) => {
     e.preventDefault();
     dispatch(filterByGenres(e.target.value)) 
     setPageNumber(1)
     setOrden(`Ordenado ${e.target.value}`)
-  }
-  function handleFilterCreated(e){
+  };
+
+  const handleFilterCreated = (e) => {
     dispatch(filterCreated(e.target.value))
     setPageNumber(1)
     setOrden(`Ordenado ${e.target.value}`)
-  }
+  };
 
-  function handleOrdenByName(e){
+  const handleOrdenByName = (e) => {
     e.preventDefault();
     dispatch(ordenByName(e.target.value))
     setPageNumber(1)
     setOrden(`Ordenado ${e.target.value}`)
-
   };
 
-  function handleRating(e){
+  const handleRating = (e) => {
     e.preventDefault();
     dispatch(ordenByRating(e.target.value))
     setPageNumber(1)
     setOrden(`Ordenado ${e.target.value}`)
-}
+  };
 
   return (
     <>
@@ -68,7 +66,7 @@ const Home = () => {
         </div>
       ) : (
         <>
-          {/* <Background /> */}
+          <img src="https://purepng.com/public/uploads/large/pewdiepie-logo-cwy.png" className="logohome" alt=""/>
           <div>
             <Navbar />
           </div>
@@ -76,63 +74,60 @@ const Home = () => {
             <Pagination
               gamesXPage={gamesXPage}
               AllGames={AllGames.length}
-              paginate={paginate}
-              
+              paginate={paginate}        
             />
           </div>
         
-        <div className="searchbar">
-         <Searchbar />
-        </div>
+          <div className="searchbar">
+          <Searchbar />
+          </div>
 
+          <div className="ALL">
+            
+            <select onChange={e => handleFilterGenres(e)} className='select1'>
+              <option disabled selected>Genres</option> 
+              <option value="all">All Genres</option>
+              <option value='Action'>Action</option>
+              <option value='Indie'>Indie</option>
+              <option value='Adventure'>Adventure</option>
+              <option value='RPG'>RPG</option>
+              <option value='Strategy'>Strategy</option>
+              <option value='Shooter'>Shooter</option>
+              <option value='Casual'>Casual</option>
+              <option value='Simulation'>Simulation</option>
+              <option value='Puzzle'>Puzzle</option>
+              <option value='Arcade'>Arcade</option>
+              <option value='Platformer'>Platformer</option>
+              <option value='Racing'>Racing</option>
+              <option value='Massively Multiplayer'>Massively Multiplayer</option>
+              <option value='Sports'>Sports</option>
+              <option value='Fighting'>Fighting</option>
+              <option value='Family'>Family</option>
+              <option value='Board Games'>Board Games</option>
+              <option value='Educational'>Educational</option>
+              <option value='Card'>Card</option>     
+            </select>
 
-    <div className="ALL">
-          
-      <select onChange={e => handleFilterGenres(e)} className='select1'>
-        <option disabled selected>Genres</option> 
-        <option value="all">All Genres</option>
-        <option value='Action'>Action</option>
-        <option value='Indie'>Indie</option>
-        <option value='Adventure'>Adventure</option>
-        <option value='RPG'>RPG</option>
-        <option value='Strategy'>Strategy</option>
-        <option value='Shooter'>Shooter</option>
-        <option value='Casual'>Casual</option>
-        <option value='Simulation'>Simulation</option>
-        <option value='Puzzle'>Puzzle</option>
-        <option value='Arcade'>Arcade</option>
-        <option value='Platformer'>Platformer</option>
-        <option value='Racing'>Racing</option>
-        <option value='Massively Multiplayer'>Massively Multiplayer</option>
-        <option value='Sports'>Sports</option>
-        <option value='Fighting'>Fighting</option>
-        <option value='Family'>Family</option>
-        <option value='Board Games'>Board Games</option>
-        <option value='Educational'>Educational</option>
-        <option value='Card'>Card</option>
+            <select onChange={e => handleFilterCreated(e)} className='select2'>
+              <option disabled selected>Games</option> 
+              <option value="all">All Games</option>
+              <option value="created">Created</option>
+              <option value="api">Api</option>
+            </select>
+
+            <select onChange={e => handleOrdenByName(e)} className='select3'>
+              <option disabled selected>Name</option> 
+              <option value='asc'>A - Z</option>
+              <option value='desc'>Z - A</option>
+            </select>
+
+            <select onChange={(e) => handleRating(e)} className='select4'>
+              <option disabled selected>Rating</option>
+              <option value='desce'>Upward</option>
+              <option value='asce'>Falling</option>
+            </select>
       
-      </select>
-
-      <select onChange={e => handleFilterCreated(e)} className='select2'>
-        <option disabled selected>Games</option> 
-        <option value="all">All Games</option>
-        <option value="created">Created</option>
-        <option value="api">Api</option>
-      </select>
-
-      <select onChange={e => handleOrdenByName(e)} className='select3'>
-        <option disabled selected>Name</option> 
-        <option value='asc'>A - Z</option>
-        <option value='desc'>Z - A</option>
-      </select>
-
-      <select onChange={(e) => handleRating(e)} className='select4'>
-        <option disabled selected>Rating</option>
-        <option value='desce'>Upward</option>
-        <option value='asce'>Falling</option>
-      </select>
-    
-    </div>
+          </div>
 
           <div className="card_container">
             {currentPages.length ? currentPages?.map((el) => {

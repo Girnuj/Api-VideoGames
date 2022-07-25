@@ -10,13 +10,11 @@ const MapApi = async (arr) => {
       return {
         id: el.id,
         name: el.name,
-
         imagen: el.background_image,
         genres: el.genres.map((e) => {
           return {
             name: e.name,
           };
-
           // return e.name
         }),
         platforms: el.platforms.map((e) => {
@@ -28,7 +26,9 @@ const MapApi = async (arr) => {
         rating: el.rating,
       };
     });
+
     return result;
+
   } catch (error) {
     console.log("error en la ruta MapApi:", error);
 //         throw new Error(
@@ -40,10 +40,8 @@ const MapApi = async (arr) => {
 
 const GamesApi = async () => {
   try {
-    const apiGames = await axios.get(
-      `https://api.rawg.io/api/games?key=${API_KEY}`
-    );
-
+    const apiGames = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);
+    
     let apiGamesMapeados = await MapApi(apiGames.data.results);
 
     let next = apiGames.data.next;
@@ -57,7 +55,7 @@ const GamesApi = async () => {
     // console.log(apiGamesMapeados.length);
     return apiGamesMapeados;
   } catch (error) {
-    console.log("error en la funcion Games Api:", error);
+    console.error("error en la funcion GamesApi:", error);
   }
 };
 
@@ -66,21 +64,20 @@ const GamesDB = async () => {
     return await Videogame.findAll({
       include: [
         {
-            model: Genre,
-            attributes: ["name"],
-            through: {
-                attributes: []
-            }
+          model: Genre,
+          attributes: ["name"],
+          through: {
+            attributes: []
+          }
         },
         {
-            model: Platforms,
-            attributes: ["name"],
-            through: {
-                attributes: []
-            }
+          model: Platforms,
+          attributes: ["name"],
+          through: {
+            attributes: []
+          }
         }
-    ]
-      
+      ]
     });
   } catch (error) {
     console.error("error en GamesDB", error);
@@ -103,59 +100,49 @@ const ApiGenres = async () => {
   try {
     let gen = await Genre.count();
     if (gen === 0) {
-      const genresApi = await axios.get(
-        `https://api.rawg.io/api/genres?key=${API_KEY}`
-      );
-      const responseApi = genresApi.data.results;
-      for (let i = 0; i < responseApi.length; i++) {
-        const { name } = responseApi[i];
-        await Genre.findOrCreate({
-         where: { name: name}
-        });
-      }
+      const genresApi = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`);
+        await genresApi.data.results.map(e => {
+          Genre.findOrCreate({
+          where: { name: e.name}
+         });
+      })
     }
   } catch (error) {
-    console.log("error en LoadGenres", error);
+    console.error("error en ApiGenres", error);
   }
 };
 
+const ApiPlatsforms = async () => {
+  try{
+    
+    let plat = await GamesApi();
+    
+    let plat2 = plat?.map(e => e.platforms).flat(5);
+  
+    let plat3 = plat2?.map(e => e.name.trim()).reduce((acc, item) => {
+        if(!acc.includes(item)){
+          acc.push(item)
+        }
+        return acc
+    }, []);
+  
+    plat3.map((e) => {
+        Platforms.findOrCreate({
+            where: {
+                name: e
+            }
+        });
+    });
+  }catch(e){
+    console.error(e)
+  }
 
-// const ApiPlataforms = async() => {
-//     try {
-//         let plat = await Platforms.count();
-//         if(plat === 0){
-//             const platformApi = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);
-//             const platInfo = await platformApi.data?.results.map(el => {
-//                 return {
-
-//                     platforms: el.platforms.map(e => e.platforms).flat(5).reduce((acc,item)=>{
-//                         if(!acc.includes(item)){
-//                             acc.push(item);
-//                         }
-//                         return acc;
-//                       },[]),
-//                 }
-//             })
-//           //   platInfo.map((e) => {
-//           //     Platforms.findOrCreate({
-//           //         where: {
-//           //             name: e
-//           //         }
-//           //     })
-//           // })
-                
-//              res.status(200).send(platInfo);
-//         }
-//     } catch (error) {
-//         console.log('error en ApiPlataforms',error);
-//     }
-// }
-
+}
 
 module.exports = {
   AllGames,
   GamesDB,
   ApiGenres,
-  // ApiPlataforms,
   GamesApi,
+  ApiPlatsforms
 };

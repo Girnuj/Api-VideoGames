@@ -2,27 +2,28 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { Loader } from "../Loader/Loader";
-import { getGameId } from "../Redux/Actions";
+import { GetGameId } from "../../Redux-Toolskit/Slices/VideoGames/VideoGames";
 import "./Details.css";
 
 const Details = () => {
+
   const dispatch = useDispatch();
-  // const navigate = useNavigate()
+
   const { id } = useParams();
+
   const [loading, setLoading] = useState(true);
-  const detail = useSelector((state) => state.detail[0]);
+
+  const { detail: detailOne} = useSelector(state => state.VideoGames);
 
   useEffect(() => {
-    dispatch(getGameId(id))
+    dispatch(GetGameId(id))
       .then((response) => {
         setTimeout(() => {
           setLoading(false);
-
-        }, 3000)
+        }, 3000);
       })
-      .catch((error) => console.log(error));
+      .catch((e) => console.error(e));
   }, [dispatch, id]);
-  // console.log(id);
 
   return (
     <>
@@ -32,14 +33,23 @@ const Details = () => {
         </>
       ) : (
         <>
+          <Link to="/home">
+            <button data-text="Awesome" className="button">
+              <span className="actual-text">&nbsp;Home&nbsp;</span>
+              <span className="hover-text" aria-hidden="true">
+                &nbsp;Home&nbsp;
+              </span>
+            </button>
+          </Link>
+
           <div className="movie_card" id="bright">
             <div className="info_section">
               <div className="movie_header">
-                <img className="locandina" src={detail.imagen} alt="asd" />
-                <h1>{detail.name}</h1>
-                <h4>Released: {detail.released}</h4>
+                <img className="locandina" src={detailOne[0].imagen} alt="asd" />
+                <h1>{detailOne[0].name}</h1>
+                <h4>Released: {detailOne[0].released}</h4>
                 <span className="minutes">
-                  {detail.rating}
+                  {detailOne[0].rating}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -53,34 +63,28 @@ const Details = () => {
 
                 <p className="type">
                   <b>Genres:</b>
-                  {detail.genres.map((e) => (
-                    <span key={e.name}> {e.name}</span>
+                  {detailOne[0].genres.map((e) => (
+                    <span className="genresspan" key={e.name}> {e.name}</span>
                   ))}
                 </p>
+
                 <p className="type">
                   <b>Plataforms: </b>
-                  {detail.platforms?.map((e) => (
-                    <span key={e.name}> {e.name}</span>
+                  {detailOne[0].platforms?.map((e) => (
+                    <span className="plataformasspan" key={e.name}> {e.name}</span>
                   ))}
                 </p>
-              </div>
-              <div className="movie_desc">
-                <p className="text">{detail.description}</p>
+
               </div>
 
-              <div className="movie_social">
-                <ul>
-                  <Link to={`/home`}>
-                    <li>
-                      <i>Back To Home</i>
-                    </li>
-                  </Link>
-                </ul>
+              <div className="movie_desc">
+                <p className="text">{detailOne[0].description}</p>
               </div>
+              
             </div>
             <img
               className="blur_back bright_back"
-              src={detail.imagen2 ? detail.imagen2 : detail.imagen}
+              src={detailOne[0].imagen2 ? detailOne[0].imagen2 : detailOne[0].imagen}
               alt="1234"
             />
           </div>

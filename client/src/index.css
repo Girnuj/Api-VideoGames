@@ -5,7 +5,34 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  min-height: 100vh;
+}
+body::-webkit-scrollbar {
+  width: 9px;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #48bfe3;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+select::-webkit-scrollbar {
+  width: 9px;
+  border-radius: 10px;
+}
+
+select::-webkit-scrollbar-thumb {
+  background: #48bfe3;
+  border-radius: 10px;
+}
+
+select::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 code {

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const Container = styled.div`
     background: #0c0c0c;
     display: flex;
@@ -8,20 +7,18 @@ export const Container = styled.div`
     align-items: center;
     padding: 0 30px;
     height: 100vh;
-   
     position: relative;
-    z-index: 1;
-    
+    z-index: 1;   
 
     :before{
-        content: '';
-        top:0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%,
-        rgba(0, 0, 0, 0.6) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
-        z-index: 2; 
+    content: '';
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.6) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
+    z-index: 2; 
     }
 `;
 
@@ -92,7 +89,6 @@ export const Btn = styled.div`
 `;
 
 export const BtnGo = styled.button`
-
     padding: 1.3em 3em;
     font-size: 16px;
     text-transform: uppercase;
@@ -107,8 +103,7 @@ export const BtnGo = styled.button`
     cursor: pointer;
     outline: none;
     top: 20px;
-   
-   
+     
    :hover {
     background-color: #2EE59D;
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);

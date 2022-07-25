@@ -7,35 +7,33 @@ import { NewGame } from './Components/NewGame/NewGame';
 
 function App() {
 
-
   return (
+
     <BrowserRouter>
-     <Routes>
+     
+      <Routes>
 
-      <Route 
-        path='/'
-        element={<LandingPage />}
-      >
+        <Route 
+          path='/'
+          element={<LandingPage />}
+        />
 
-      </Route>
-
-     <Route
-        path='/home'
-        element={<Home />}
+        <Route
+          path='/home'
+          element={<Home />}
         />
 
         <Route 
           path="/videogames/:id"
           element={<Details />}
-         />
+        />
 
-<Route 
-         path='/videogame'
-         element={<NewGame />}
-         />
+        <Route 
+          path='/videogame'
+          element={<NewGame />}
+        />
 
-
-     </Routes>
+      </Routes>
     
     </BrowserRouter>
   );

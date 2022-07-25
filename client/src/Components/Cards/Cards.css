@@ -9,10 +9,9 @@
 .contenedor {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
-	
-	 flex-direction: column;
-	 align-items: center;
+	justify-content: center;	
+	flex-direction: column;
+	align-items: center;
 }
 
 .card {
@@ -30,16 +29,20 @@
   box-shadow: 0px 0px 30px 2px #000;
   font-family: var(--font-sans);
 }
+
 .card:hover {
 	transform: translateY(20px);
 }
+
 .card:hover:before {
 	opacity: 1;
 }
+
 .card:hover .info {
 	opacity: 1;
 	transform: translateY(0px);
 }
+
 .card:before {
 	content: '';
 	position: absolute;
@@ -54,6 +57,7 @@
 	transition: 0.5s;
 	opacity: 0;
 }
+
 .card img {
 	width: 100%;
 	height: 100%;
@@ -64,6 +68,7 @@
 	left: 0;
 	border-radius: 15px;
 }
+
 .card .info {
 	position: relative;
 	z-index: 3;
@@ -77,37 +82,14 @@
 	margin: 0;
   font-size: 25px;
 }
+
 .card .info p {
 	letter-spacing: 1px;
 	font-size: 15px;
 	margin-top: 8px;
   margin-bottom: 8px;
 }
-/* .btn-card {
-  display: inline-block;
-  position: relative;
-  color: black;
-  font-weight: 500;
-  font-size: 14px;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  text-align: center;
-  border: none;
-  clip-path: polygon(7% 0, 93% 0, 100% 50%, 93% 100%, 7% 100%, 0 50%);
-  background-color: orange;
-  background-image: radial-gradient(200% 70% at center 20%, rgba(234, 226, 183, 1) -30%, rgba(234, 226, 183, 1) 49%, rgba(252, 191, 73, 1) 50%, rgba(252, 191, 73, 1) 150%);
-  background-repeat: no-repeat;
-  transition: background-position-y ease-in-out 250ms;
-  cursor: pointer;
- 
-}
-.btn-card:hover {
-  background-position-y: -50px;
-} */
 
-
-/* From uiverse.io */
 #button {
 	position: relative;
 	display: inline-block;
@@ -122,15 +104,15 @@
 	font-family: inherit;
 	bottom: -140px;
 	left: -10px;
-   }
+}
    
-   button.learn-more {
+button.learn-more {
 	width: 12rem;
 	height: auto;
 	bottom: -130px;
-   }
+}
    
-   button.learn-more .circle {
+button.learn-more .circle {
 	transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
 	position: relative;
 	display: block;
@@ -139,26 +121,26 @@
 	height: 3rem;
 	background: #4ea8de;
 	border-radius: 1.625rem;
-   }
+}
    
-   button.learn-more .circle .icon {
+button.learn-more .circle .icon {
 	transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	margin: auto;
 	background: #fff;
-   }
+}
    
-   button.learn-more .circle .icon.arrow {
+button.learn-more .circle .icon.arrow {
 	transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
 	left: 0.625rem;
 	width: 1.125rem;
 	height: 0.125rem;
 	background: none;
-   }
+}
    
-   button.learn-more .circle .icon.arrow::before {
+button.learn-more .circle .icon.arrow::before {
 	position: absolute;
 	content: "";
 	top: -0.29rem;
@@ -168,9 +150,9 @@
 	border-top: 0.125rem solid #fff;
 	border-right: 0.125rem solid #fff;
 	transform: rotate(45deg);
-   }
+}
    
-   button.learn-more .button-text {
+button.learn-more .button-text {
 	transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
 	position: absolute;
 	top: 0;
@@ -184,22 +166,22 @@
 	line-height: 1.6;
 	text-align: center;
 	text-transform: uppercase;
-   }
+}
    
-   button:hover .circle {
+button:hover .circle {
 	width: 100%;
-   }
+}
    
-   button:hover .circle .icon.arrow {
+button:hover .circle .icon.arrow {
 	background: #fff;
 	transform: translate(1rem, 0);
-   }
+}
    
-   button:hover .button-text {
+button:hover .button-text {
 	color: #fff;
-   }
+}
 
-   .title {
+.title {
 	font-size: 1.3rem;
 	font-weight: bold;
 	line-height: 1.2;
