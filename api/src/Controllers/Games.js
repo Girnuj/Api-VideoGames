@@ -31,9 +31,9 @@ const MapApi = async (arr) => {
 
   } catch (error) {
     console.log("error en la ruta MapApi:", error);
-//         throw new Error(
-//             `Mientras se proceso ${MapApi}`, {cause: error}
-//         )
+//     throw new Error(
+//         `Mientras se proceso ${MapApi}`, {cause: error}
+//    )
   }
 };
 
@@ -88,7 +88,6 @@ const AllGames = async () => {
   try {
     const ApiInfo = await GamesApi();
     const DBInfo = await GamesDB();
-    // console.log(DBInfo)
     const AllInfo = ApiInfo.concat(DBInfo);
     return AllInfo;
   } catch (error) {
@@ -106,15 +105,14 @@ const ApiGenres = async () => {
           where: { name: e.name}
          });
       })
-    }
+    };
   } catch (error) {
     console.error("error en ApiGenres", error);
   }
 };
 
 const ApiPlatsforms = async () => {
-  try{
-    
+  try{  
     let plat = await GamesApi();
     
     let plat2 = plat?.map(e => e.platforms).flat(5);
@@ -132,7 +130,7 @@ const ApiPlatsforms = async () => {
                 name: e
             }
         });
-    });
+      });
   }catch(e){
     console.error(e)
   }

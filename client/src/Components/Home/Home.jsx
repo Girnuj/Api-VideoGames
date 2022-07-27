@@ -33,29 +33,29 @@ const Home = () => {
 
   const handleFilterGenres = (e) => {
     e.preventDefault();
-    dispatch(filterByGenres(e.target.value)) 
-    setPageNumber(1)
-    setOrden(`Ordenado ${e.target.value}`)
+    dispatch(filterByGenres(e.target.value));
+    setPageNumber(1);
+    setOrden(`Ordenado ${e.target.value}`);
   };
 
   const handleFilterCreated = (e) => {
-    dispatch(filterCreated(e.target.value))
-    setPageNumber(1)
-    setOrden(`Ordenado ${e.target.value}`)
+    dispatch(filterCreated(e.target.value));
+    setPageNumber(1);
+    setOrden(`Ordenado ${e.target.value}`);
   };
 
   const handleOrdenByName = (e) => {
     e.preventDefault();
-    dispatch(ordenByName(e.target.value))
-    setPageNumber(1)
-    setOrden(`Ordenado ${e.target.value}`)
+    dispatch(ordenByName(e.target.value));
+    setPageNumber(1);
+    setOrden(`Ordenado ${e.target.value}`);
   };
 
   const handleRating = (e) => {
     e.preventDefault();
-    dispatch(ordenByRating(e.target.value))
-    setPageNumber(1)
-    setOrden(`Ordenado ${e.target.value}`)
+    dispatch(ordenByRating(e.target.value));
+    setPageNumber(1);
+    setOrden(`Ordenado ${e.target.value}`);
   };
 
   return (

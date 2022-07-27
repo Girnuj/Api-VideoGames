@@ -15,12 +15,7 @@ const Pagination = ({ gamesXPage, AllGames, paginate }) => {
           <ul className="nav-type" id='ulu'>
             {pageNumbers.map((number) => (
               <li key={number} className="li" id={number}>
-                <a
-                  onClick={() => paginate(number)}
-                  href="#!"
-                  id="aa"
-                  className="asd"
-                >
+                <a onClick={() => paginate(number)} href="#!" id="aa" className="asd" >
                   {number}
                 </a>
               </li>
